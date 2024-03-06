@@ -8,22 +8,30 @@ func TestLinear(t *testing.T) {
 		target int
 	}
 	tests := []struct {
-		name    string
-		args    args
-		want    int
-		wantErr bool
+		name string
+		args args
+		want int
 	}{
 		{
-			// TODO: Add test cases.
+			name: "found target",
+			args: args{
+				arr:    []int{1, 3, 5, 7, 9, 11},
+				target: 7,
+			},
+			want: 3,
+		},
+		{
+			name: "not found target",
+			args: args{
+				arr:    []int{1, 3, 5, 7, 9, 11},
+				target: 17,
+			},
+			want: -1,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := Linear(tt.args.arr, tt.args.target)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("Linear() error = %v, wantErr %v", err, tt.wantErr)
-				return
-			}
+			got := Linear(tt.args.arr, tt.args.target)
 			if got != tt.want {
 				t.Errorf("Linear() got = %v, want %v", got, tt.want)
 			}

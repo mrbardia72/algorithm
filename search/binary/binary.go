@@ -3,7 +3,6 @@ package main
 import (
 	"errors"
 	"fmt"
-	"log"
 )
 
 var (
@@ -14,15 +13,12 @@ func main() {
 	arr := []int{20, 30, 50, 60, 70, 80, 90, 100}
 	target := 90
 
-	res, err := Binary(arr, target)
-	if err != nil {
-		log.Fatalln(err)
-	}
+	res := Binary(arr, target)
 
 	fmt.Println("res\t", res)
 }
 
-func Binary(arr []int, target int) (int, error) {
+func Binary(arr []int, target int) int {
 	start := 0
 	end := len(arr) - 1
 	var mid int
@@ -34,9 +30,9 @@ func Binary(arr []int, target int) (int, error) {
 		} else if arr[mid] < target {
 			start = mid + 1
 		} else {
-			return mid, nil
+			return mid
 		}
 	}
 
-	return -1, ErrNotFound
+	return -1
 }

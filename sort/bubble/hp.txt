@@ -1,0 +1,28 @@
+Cover Profile
+$ go test -coverprofile profile
+$ go tool cover -html=profile
+-----------------
+Ubuntu packages:
+GraphViz is software system that provides a program called dot. This dot program is able to generate a directed graph from a textual description.
+sudo apt install graphviz
+--------------
+run command test fuzz:
+go test -fuzz=Fuzz -fuzztime 10s
+------------
+go test -cpuprofile cpu.prof -memprofile mem.prof
+-----------------
+test benchmark:
+go test -bench=. -v
+go test -bench=. -count 5
+
+Display memory allocation statistics:
+go test -bench=. -benchmem
+
+sample output:
+Benchmark_Bubble_Test
+Benchmark_Bubble_Test-4         214033183                5.425 ns/op
+
+// The -4 suffix denotes the number of CPUs used to run the benchmark
+// On the right side of the function name, you have two values, 214033183 and 5.425 ns/op. The former indicates the
+//total number of times the loop was executed, while the latter is the average amount of time each iteration took to
+//complete, expressed in nanoseconds per operation.

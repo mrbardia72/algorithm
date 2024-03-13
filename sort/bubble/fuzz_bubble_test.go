@@ -12,6 +12,3 @@ func Fuzz_Bubble_Test(f *testing.F) {
 		Bubble(arrx)
 	})
 }
-
-//command:
-// go test -fuzz=Fuzz -fuzztime 10s

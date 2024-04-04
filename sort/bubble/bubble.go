@@ -12,7 +12,11 @@ func main() {
 
 	arrGenric := []float64{60.2, 50.32, 100.56, 90.19, 20.55, 30.69}
 	resGenric := BubbleGeneric(arrGenric)
-	fmt.Println("sort bubble genric:\t", resGenric)
+	fmt.Println("sort bubble generic float type:\t", resGenric)
+
+	arrGenric1 := []string{"a", "c", "b"}
+	resGenric1 := BubbleGeneric(arrGenric1)
+	fmt.Println("sort bubble generic string type:\t", resGenric1)
 
 }
 

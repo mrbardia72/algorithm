@@ -10,6 +10,8 @@ run command test fuzz:
 go test -fuzz=Fuzz -fuzztime 10s
 ------------
 go test -cpuprofile cpu.prof -memprofile mem.prof
+go tool pprof -http=: mem.prof
+go tool pprof -http=: cpu.prof
 -----------------
 test benchmark:
 go test -bench=. -v

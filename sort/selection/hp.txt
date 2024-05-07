@@ -1,0 +1,14 @@
+$ Cover Profile
+go test -coverprofile profile
+go tool cover -html=profile
+go test -cpuprofile cpu.prof -memprofile mem.prof
+----------------------------------
+$ run command test fuzz:
+go test -fuzz=Fuzz -fuzztime 10s
+----------------------------------
+$ test benchmark:
+go test -bench=. -v
+go test -bench=. -count 5
+----------------------------------
+$ Display memory allocation statistics:
+go test -bench=. -benchmem
